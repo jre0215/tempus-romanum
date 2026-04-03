@@ -1,10 +1,9 @@
+import "bulma/css/bulma.css";
+import "./style.css";
+
 import moment from "moment";
 
-import { drawChart } from "./chart";
-
-import "bulma/css/bulma.css";
-
-import "./main.css";
+import { drawChart } from "./chart.ts";
 
 const sunriseInput = document.getElementById("sunrise") as HTMLInputElement;
 const sunsetInput = document.getElementById("sunset") as HTMLInputElement;

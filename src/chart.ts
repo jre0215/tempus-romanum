@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import moment from "moment";
 
-import { getTimeData, TimeData } from "./time";
+import { getTimeData, type TimeData } from "./time.ts";
 
 const chartContainer = document.getElementById("chart-container") as HTMLDivElement;
 
@@ -68,10 +68,10 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .enter()
         .append("path")
         .attr("class", (d) => d.isDaytime ? "hour-day" : "hour-night")
-        .attr("id", (d, i) => `hour-arc${i}`)
+        .attr("id", (_d, i) => `hour-arc${i}`)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", hourArc as any)
-        .each(function(d, i) {
+        .each(function (d, i) {
             // Captures everything up to the first L
             const firstArcSection = /(^.+?)L/;
 
@@ -128,7 +128,7 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .append("textPath")
         .attr("startOffset", "50%")
         .style("text-anchor", "middle")
-        .attr("xlink:href", (d, i) => `#hidden-hour-arc${i}`)
+        .attr("xlink:href", (_d, i) => `#hidden-hour-arc${i}`)
         .text((d) => d.label)
         .append("svg:title")
         .text((d, i) => `${d.isDaytime ? "diēī" : "noctis"} hōra ${ORDINALS[i % 12]}`);
@@ -137,7 +137,7 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .data(d3.range(24))
         .enter()
         .append("line")
-        .attr("id", (d, i) => `hour-tick${i}`)
+        .attr("id", (_d, i) => `hour-tick${i}`)
         .attr("class", "hour-tick")
         .attr("x1", 0)
         .attr("x2", 0)
@@ -149,7 +149,7 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .data(d3.range(24))
         .enter()
         .append("text")
-        .attr("id", (d, i) => `hour-tick-label${i}`)
+        .attr("id", (_d, i) => `hour-tick-label${i}`)
         .attr("text-anchor", "middle")
         .attr("x", (d) => {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -166,10 +166,10 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .enter()
         .append("path")
         .attr("class", "hour-night")
-        .attr("id", (d, i) => `vigil-arc${i}`)
+        .attr("id", (_d, i) => `vigil-arc${i}`)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", vigilArc as any)
-        .each(function(d, i) {
+        .each(function (_d, i) {
             // Captures everything up to the first L
             const firstArcSection = /(^.+?)L/;
 
@@ -186,7 +186,7 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
                 .style("fill", "none");
         })
         .append("svg:title")
-        .text((d, i) => `vigilia ${ORDINALS[i]}`);
+        .text((_d, i) => `vigilia ${ORDINALS[i]}`);
 
     svg.selectAll(".vigil-label")
         .data(timeData.vigils)
@@ -196,20 +196,20 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .append("textPath")
         .attr("startOffset", "50%")
         .style("text-anchor", "middle")
-        .attr("xlink:href", (d, i) => `#hidden-vigil-arc${i}`)
+        .attr("xlink:href", (_d, i) => `#hidden-vigil-arc${i}`)
         .text((d) => d.label)
         .append("svg:title")
-        .text((d, i) => `vigilia ${ORDINALS[i]}`);
+        .text((_d, i) => `vigilia ${ORDINALS[i]}`);
 
     svg.selectAll(".quarter-arc")
         .data(timeData.quarters)
         .enter()
         .append("path")
-        .attr("id", (d, i) => `quarter-arc${i}`)
+        .attr("id", (_d, i) => `quarter-arc${i}`)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", quarterArc as any)
         .style("fill", "none")
-        .each(function(d, i) {
+        .each(function (d, i) {
             // Captures everything up to the first L
             const firstArcSection = /(^.+?)L/;
 
@@ -264,7 +264,7 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .append("textPath")
         .attr("startOffset", "50%")
         .style("text-anchor", "middle")
-        .attr("xlink:href", (d, i) => `#hidden-quarter-arc${i}`)
+        .attr("xlink:href", (_d, i) => `#hidden-quarter-arc${i}`)
         .text((d) => d.label);
 }
 
