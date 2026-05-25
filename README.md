@@ -10,7 +10,7 @@ This clock visualization shows how Roman hours and vigils map onto the modern 24
 
 ## Usage
 
-```bash
+```shell
 npm install
 npm run dev
 ```

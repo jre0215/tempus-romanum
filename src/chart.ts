@@ -69,7 +69,6 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .append("path")
         .attr("class", (d) => d.isDaytime ? "hour-day" : "hour-night")
         .attr("id", (_d, i) => `hour-arc${i}`)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", hourArc as any)
         .each(function (d, i) {
             // Captures everything up to the first L
@@ -161,7 +160,6 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .append("path")
         .attr("class", "hour-night")
         .attr("id", (_d, i) => `vigil-arc${i}`)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", vigilArc as any)
         .each(function (_d, i) {
             // Captures everything up to the first L
@@ -199,7 +197,6 @@ export function drawChart(sunriseMoment: moment.Moment, sunsetMoment: moment.Mom
         .enter()
         .append("path")
         .attr("id", (_d, i) => `quarter-arc${i}`)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .attr("d", quarterArc as any)
         .style("fill", "none")
         .each(function (d, i) {

@@ -1,45 +1,45 @@
 .field {
-    display: inline-block;
+  display: inline-block;
 }
 
 .input {
-    width: initial;
+  width: initial;
 }
 
 svg {
-    font-family: 'Hoefler Text', 'Georgia', serif;
-    letter-spacing: 0.1rem;
-    border: 1px solid #dbdbdb;
-    border-radius: 4px;
-    background-color: whitesmoke;
+  font-family: 'Hoefler Text', 'Georgia', serif;
+  letter-spacing: 0.1rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: whitesmoke;
 }
 
 .hour-day {
-    fill: skyblue;
+  fill: skyblue;
 }
 
 .hour-night {
-    fill: orange;
+  fill: orange;
 }
 
 .hour-tick {
-    stroke: black;
+  stroke: black;
 }
 
 #hour-tick-label0,
 #hour-tick-label6,
 #hour-tick-label12,
 #hour-tick-label18 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #hour-tick-label3,
 #hour-tick-label9,
 #hour-tick-label15,
 #hour-tick-label21 {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .quarter-label {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
